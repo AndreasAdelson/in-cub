@@ -1,11 +1,29 @@
-<div class="row">
-  <div class="col-9 offset-3">
+<div class="row mb-4">
+  <div class="col-9 offset-3 col-md-9 offset-md-3 col-lg-9 offset-lg-3 col-sm-9 offset-sm-3">
     <h2>Welcome on the {{ title }} Website</h2>
   </div>
-  <section>
-
-  </section>
-  <section>
-
-  </section>
+</div>
+<section class="mb-4">
+  <div class="row">
+    <div *ngFor="let consultant of consultantListe" class="col-4 col-md-4 col-sm-4 col-lg-4">
+      <app-card color="red" [entity]="consultant"></app-card>
+    </div>
+  </div>
+  <div>
+  </div>
+</section>
+<section class="mb-4">
+  <div class="row">
+    <div *ngFor="let startup of startUpListe" class="col-4 col-md-4 col-sm-4 col-lg-4">
+      <app-card color="yellow" [entity]="startup"></app-card>
+    </div>
+  </div>
+</section>
+<div class="row">
+  <div class="col-md-3 col-sm-3 col-3 col-lg-3 offset-3 offset-lg-3 offset-md-3 offset-sm-3">
+    <button class="btn btn-primary my-blue-background" [routerLink]="['/consultants']" >Voir la liste des consultants</button>
+  </div>
+  <div class="col-md-3 col-sm-3 col-3 col-lg-3 offset-1 offset-lg-1 offset-md-1 offset-sm-1">
+    <button class="btn btn-primary my-blue-background" [routerLink]="['/startup']">Voir la liste des startup</button>
+  </div>
 </div>

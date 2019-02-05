@@ -1,0 +1,11 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-header {{ colors }}">
+    <h5 class="card-title">{{ title | uppercase }}</h5>
+    <h6 class="card-subtitle mb-2 my-text-white">{{ lastName | uppercase }}</h6>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{ description | slice:0:60 }} ...</p>
+    <!-- <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a> -->
+  </div>
+</div>

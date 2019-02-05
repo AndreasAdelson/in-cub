@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+.red {
+    background-color: #FC3C3C !important;
+}
+
+.yellow {
+    background-color: #F8B500 !important;
+}
+
+.my-text-white {
+    color: #FFF4E0 !important;
+}
+
+.my-background-color {
+    background-color:  #FFF4E0 !important;
+}
+
+.my-blue-background {
+    background-color: #00ADB5 !important;
+    border-color: #00ADB5 !important;
+}

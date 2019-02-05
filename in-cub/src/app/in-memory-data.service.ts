@@ -23,7 +23,7 @@ export class InMemoryDataService implements InMemoryDbService {
       new Consultant(5, "Esteban", "Le Calvez", "consultant depuis 8 ans")
     ]
 
-    return {}
+    return {startups, consultants}
   }
 
   genId<T extends StartUp | Consultant>(table: T[]): number {
