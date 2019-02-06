@@ -15,7 +15,7 @@ export class ConsultantComponent implements OnInit {
   ngOnInit() {
     this.storeService.consultantList().subscribe(
       x => {
-        this.consultants = x
+        this.consultants = x;
       } ,
       err => console.log('The observable on the consultant page get an error ', err),
       () => console.log("The observable on consultant page complete")
