@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../store.service';
 import { Consultant } from '../store';
-import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-consultant',
