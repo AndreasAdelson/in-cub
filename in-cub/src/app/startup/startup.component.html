@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mt-5">
     <div class="col-12">
         <table border=1>
             <tr>
@@ -10,13 +10,13 @@
               <th>Nom consultant</th>
               <th>Action</th>
             </tr>
-            <tr *ngFor="let consultant of consultant ">
-              <td><a >{{consultant?.name | lowercase}}</a></td>
-              <td><a >{{consultant?.legalAgent | uppercase}}</a></td>
-              <td><a >{{consultant?.coFounders | uppercase}}</a></td>
-              <td><a >{{consultant?.description | uppercase}}</a></td>
-              <td><a >{{consultant?.address | uppercase}}</a></td>
-              <td><a >{{consultant?.lastname | uppercase}}</a></td>
+            <tr *ngFor="let startup of startups ">
+              <td><a >{{startup?.name | uppercase}}</a></td>
+              <td><a >{{startup?.legalAgent | uppercase}}</a></td>
+              <td><a >{{startup?.coFounders}}</a></td>
+              <td><a >{{startup?.description }}</a></td>
+              <td><a >{{startup?.address | uppercase}}</a></td>
+              <td><a >{{startup?.consultant?.name | uppercase}}</a></td>
               <!-- TODO créer les boutons de modifications et de suppression -->
               <td></td>
   
