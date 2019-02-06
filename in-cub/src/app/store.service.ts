@@ -23,6 +23,10 @@ export class StoreService {
     return this.http.get(`/api/startups/${startupId}`);
   }
 
+  deleteStartup(starupId: number) {
+    return this.http.delete(`/api/startups/${starupId}`);
+  }
+
   consultantList(){
     return this.http.get(`/api/consultants`);
   }

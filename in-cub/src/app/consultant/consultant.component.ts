@@ -49,6 +49,7 @@ export class ConsultantComponent implements OnInit {
   register() {
     this.storeService.addConsultant(this.consultantForm.value as Consultant).subscribe(
       x => { this.consultants.push(x) }
-    )
+    );
+    this.isVisible = false;
   }
 }
