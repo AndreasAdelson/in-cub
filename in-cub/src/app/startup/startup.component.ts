@@ -14,7 +14,7 @@ export class StartupComponent implements OnInit {
   ngOnInit() {
     this.storeService.startUpList().subscribe(
       x => {
-        this.startups = x
+        this.startups = x;
         console.log(this.startups)
       },
       err => console.log("The observable on startup page get an error : ", err),

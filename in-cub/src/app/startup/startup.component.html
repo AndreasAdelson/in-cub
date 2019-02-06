@@ -1,28 +1,29 @@
 <div class="row mt-5">
-    <div class="col-12">
-        <table border=1>
-            <tr>
-              <th>Nom Startup</th>
-              <th>Représentant</th>
-              <th>Nombre de co-fodateurs</th>
-              <th>Description</th>
-              <th>Adresse</th>
-              <th>Nom consultant</th>
-              <th>Action</th>
-            </tr>
-            <tr *ngFor="let startup of startups ">
-              <td><a >{{startup?.name | uppercase}}</a></td>
-              <td><a >{{startup?.legalAgent | uppercase}}</a></td>
-              <td><a >{{startup?.coFounders}}</a></td>
-              <td><a >{{startup?.description }}</a></td>
-              <td><a >{{startup?.address | uppercase}}</a></td>
-              <td><a >{{startup?.consultant?.name | uppercase}}</a></td>
-              <!-- TODO créer les boutons de modifications et de suppression -->
-              <td></td>
-  
-            </tr>
-          </table>
-    </div>
+  <div class="col-12" style="text-align: center;">
+    <table border=1>
+      <tr>
+        <th>Nom Startup</th>
+        <th>Représentant</th>
+        <th>Nombre de co-fodateurs</th>
+        <th>Description</th>
+        <th>Adresse</th>
+        <th>Nom consultant</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let startup of startups ">
+        <td><a>{{startup?.name | uppercase}}</a></td>
+        <td><a>{{startup?.legalAgent | uppercase}}</a></td>
+        <td><a>{{startup?.coFounders}}</a></td>
+        <td><a>{{startup?.description }}</a></td>
+        <td><a>{{startup?.address | uppercase}}</a></td>
+        <td><a>{{startup?.consultant?.name | uppercase}}</a></td>
+        <!-- TODO créer les boutons de modifications et de suppression -->
+        <td>
+          <button type="button" class="btn btn-outline-dark"><i class="fas fa-plus-square"></i></button>
+          <button type="button" class="btn btn-outline-dark"><i class="far fa-trash-alt"></i></button>
+        </td>
+      </tr>
+    </table>
   </div>
-  
-  
+</div>
+
