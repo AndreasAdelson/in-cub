@@ -9,17 +9,14 @@ import { timingSafeEqual } from 'crypto';
   styleUrls: ['./consultant.component.css']
 })
 export class ConsultantComponent implements OnInit {
-  consultants: Array<Consultant> = [];
+  consultants;
 
   constructor(private storeService: StoreService) { }
 
   ngOnInit() {
     this.storeService.consultantList().subscribe(
       x => {
-        console.log(x);
-        x.forEach(consultant => {
-          this.consultants.push(consultant);
-        }); 
+        this.consultants = x
       } ,
       err => console.log('The observable on the consultant page get an error ', err),
       () => console.log("The observable on consultant page complete")
