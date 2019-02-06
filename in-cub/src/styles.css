@@ -15,7 +15,11 @@
     background-color:  #FFF4E0 !important;
 }
 
-.my-blue-background {
-    background-color: #00ADB5 !important;
-    border-color: #00ADB5 !important;
+.my-yellow-background {
+    background-color: #F8B500 !important;
+    border-color: #F8B500 !important;
+}
+.my-red-background {
+    background-color: #FC3C3C !important;
+    border-color: #FC3C3C !important;
 }

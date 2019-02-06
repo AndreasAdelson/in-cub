@@ -1,3 +1,21 @@
-<p>
-  consultant works!
-</p>
+<div class="row mt-5">
+  <div class="col-8 offset-4">
+      <table border=1>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let consultant of consultants ">
+            <td><a >{{consultant?.lastName | uppercase}}</a></td>
+            <td><a >{{consultant?.name }}</a></td>
+            <td><a >{{consultant?.description}}</a></td>
+            <!-- TODO créer les boutons de modifications et de suppression -->
+            <td></td>
+
+          </tr>
+        </table>
+  </div>
+</div>
+

@@ -1,3 +1,28 @@
-<p>
-  startup works!
-</p>
+<div class="row">
+    <div class="col-12">
+        <table border=1>
+            <tr>
+              <th>Nom Startup</th>
+              <th>Représentant</th>
+              <th>Nombre de co-fodateurs</th>
+              <th>Description</th>
+              <th>Adresse</th>
+              <th>Nom consultant</th>
+              <th>Action</th>
+            </tr>
+            <tr *ngFor="let consultant of consultant ">
+              <td><a >{{consultant?.name | lowercase}}</a></td>
+              <td><a >{{consultant?.legalAgent | uppercase}}</a></td>
+              <td><a >{{consultant?.coFounders | uppercase}}</a></td>
+              <td><a >{{consultant?.description | uppercase}}</a></td>
+              <td><a >{{consultant?.address | uppercase}}</a></td>
+              <td><a >{{consultant?.lastname | uppercase}}</a></td>
+              <!-- TODO créer les boutons de modifications et de suppression -->
+              <td></td>
+  
+            </tr>
+          </table>
+    </div>
+  </div>
+  
+  
