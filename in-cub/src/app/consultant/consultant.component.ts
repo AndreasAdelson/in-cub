@@ -18,10 +18,10 @@ export class ConsultantComponent implements OnInit {
   isVisible: boolean;
 
   constructor(private storeService: StoreService, private fb: FormBuilder) {
-    this.nameCtrl = fb.control('', Validators.required);
-    this.lastNameCtrl = fb.control('', Validators.required);
-    this.descriptionCtrl = fb.control('', Validators.required);
-    this.consultantForm = fb.group({
+    this.nameCtrl = this.fb.control('', Validators.required);
+    this.lastNameCtrl = this.fb.control('', Validators.required);
+    this.descriptionCtrl = this.fb.control('', Validators.required);
+    this.consultantForm = this.fb.group({
       name: this.nameCtrl,
       lastName: this.lastNameCtrl,
       description: this.descriptionCtrl
@@ -51,5 +51,17 @@ export class ConsultantComponent implements OnInit {
       x => { this.consultants.push(x) }
     );
     this.isVisible = false;
+  }
+
+  delete(consultantId) {
+    this.storeService.deleteConsultant(consultantId as number).subscribe(
+      x => { 
+        for(let i = 0; i < this.consultants.length; i++){
+          if(this.consultants[i].id === consultantId) {
+            this.consultants.splice(i, 1)
+          }
+        }
+       }
+    );
   }
 }

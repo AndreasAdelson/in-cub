@@ -38,4 +38,8 @@ export class StoreService {
   getConsultant(consultantId: number) {
     return this.http.get(`/api/consultants/${consultantId}`);
   }
+
+  deleteConsultant(consultantId : number) {
+    return this.http.delete(`/api/consultants/${consultantId}`);
+  }
 }

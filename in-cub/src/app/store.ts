@@ -6,7 +6,6 @@ export class StartUp {
     coFounders: number;
     description: string;
     address?: string;
-    // TODO rendre obligatoire l'entrée d'un consultant
     consultant?: Consultant
 
     constructor(id: number, name: string, activity: string, legalAgent: string, coFounders: number, description: string, address?: string, consultant?: Consultant) {

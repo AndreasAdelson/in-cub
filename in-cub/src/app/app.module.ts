@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { CardComponent } from './card/card.component';
 import { ConsultantComponent } from './consultant/consultant.component';
 import { StartupComponent } from './startup/startup.component';
+import { AddressPipe } from './address.pipe';
+import { CofoundersPipe } from './cofounders.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { StartupComponent } from './startup/startup.component';
     HomeComponent,
     CardComponent,
     ConsultantComponent,
-    StartupComponent
+    StartupComponent,
+    AddressPipe,
+    CofoundersPipe
   ],
   imports: [
     BrowserModule,
