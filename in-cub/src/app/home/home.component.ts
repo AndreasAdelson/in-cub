@@ -17,7 +17,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.storeService.consultantList().subscribe(
       x => {
-        for(let i = 0; i <= 2; i++) {
+        let max = 3
+        if(x.length < 3) {
+          max = x.length;
+        }
+        for(let i = 0; i < max; i++) {
           this.consultantListe.push(x[i])
         }
       },
@@ -26,15 +30,21 @@ export class HomeComponent implements OnInit {
     );
 
     this.storeService.startUpList().subscribe(
-      x=> {
-        for(let i = 0; i <= 2; i++){
+      x => {
+        console.log(x.length)
+        let max = 3;
+        if(x.length < 3) {
+          max = x.length;
+        }
+        for(let i = 0; i < max; i++){
           this.startUpListe.push(x[i]);
         }
       },
       err =>  console.log("The observable get an error" + err),
       () => console.log("The observable for startup list on home page complete")
     );
-    
+    console.log(this.consultantListe);
+    console.log(this.startUpListe);
   }
 
 }

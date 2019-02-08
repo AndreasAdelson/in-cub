@@ -14,6 +14,7 @@ import { ConsultantComponent } from './consultant/consultant.component';
 import { StartupComponent } from './startup/startup.component';
 import { AddressPipe } from './address.pipe';
 import { CofoundersPipe } from './cofounders.pipe';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CofoundersPipe } from './cofounders.pipe';
     ConsultantComponent,
     StartupComponent,
     AddressPipe,
-    CofoundersPipe
+    CofoundersPipe,
+    Page404Component,
   ],
   imports: [
     BrowserModule,

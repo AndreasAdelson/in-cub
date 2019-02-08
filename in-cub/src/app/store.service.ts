@@ -11,7 +11,7 @@ export class StoreService {
   constructor(private http: HttpClient) { 
 
   }
-  startUpList() {
+  startUpList(): Observable<any> {
     return this.http.get(`/api/startups`);
   }
 
@@ -23,11 +23,15 @@ export class StoreService {
     return this.http.get(`/api/startups/${startupId}`);
   }
 
+  updateStartUp(startup: StartUp) {
+    return this.http.put(`/api/startups/`, startup)
+  }
+
   deleteStartup(starupId: number) {
     return this.http.delete(`/api/startups/${starupId}`);
   }
 
-  consultantList(){
+  consultantList(): Observable<any>{
     return this.http.get(`/api/consultants`);
   }
 
@@ -37,6 +41,10 @@ export class StoreService {
 
   getConsultant(consultantId: number) {
     return this.http.get(`/api/consultants/${consultantId}`);
+  }
+
+  updateConsultant(consultant: Consultant) {
+    return this.http.put(`/api/consultants`, consultant);
   }
 
   deleteConsultant(consultantId : number) {

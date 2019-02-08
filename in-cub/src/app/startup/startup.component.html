@@ -1,6 +1,6 @@
 <div class="row mb-5 mt-1">
   <div class=" col-4">
-    <button [routerLink]="['/']" class="btn btn-primary my-red-background">Retour</button>
+    <button [routerLink]="['/']" class="btn btn-primary my-yellow-background">Retour</button>
   </div>
 </div>
 <div class="row mt-5">
@@ -22,8 +22,8 @@
         <td><a>{{startup?.description }}</a></td>
         <td><a>{{startup?.address | address}}</a></td>
         <td><a>{{startup?.consultant?.name | uppercase}}</a></td>
-        <td>
-          <button type="button" class="btn btn-outline-dark"><i class="fas fa-plus-square"></i></button>
+        <td  style="text-align: center;">
+          <button (click)="isEditing(startup)" type="button" class="btn btn-outline-dark"><i class="fas fa-plus-square"></i></button>
           <button (click)="delete(startup.id)" type="button" class="btn btn-outline-dark"><i class="far fa-trash-alt"></i></button>
         </td>
       </tr>
@@ -32,7 +32,7 @@
 </div>
 <div class="row mt-5 mb-3">
   <div class="col-4 offset-5">
-    <button (click)="toggleForm()" class="btn btn-primary my-red-background">Créer une startup</button>
+    <button (click)="toggleForm()" class="btn btn-primary my-yellow-background">Créer une startup</button>
   </div>
 </div>
 <div *ngIf="isVisible" class="row mt-5">
@@ -137,7 +137,115 @@
       </div>
       <div class="row mt-3 mb-3">
         <div class="col-4 offset-4">
-          <button [disabled]="startupForm.invalid" class="btn btn-primary my-red-background" type="submit">Register</button>
+          <button [disabled]="startupForm.invalid" class="btn btn-primary my-yellow-background" type="submit">Register</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div *ngIf="startUp" class="row mt-5">
+  <div class="col-5 offset-4">
+    <form (ngSubmit)="modify()" [formGroup]="startupEditForm">
+      <div class="row">
+        <div class="col-4 ">
+          <label>Startup Name</label>
+        </div>
+        <div class="col-8">
+          <input formControlName="name">
+        </div>
+      </div>
+      <div class="my-text-yellow" *ngIf="nameEditCtrl.dirty && nameEditCtrl.hasError('required')">
+        <strong>Starup name is required</strong>
+      </div>
+      <div class="my-text-yellow" *ngIf=" nameEditCtrl.dirty && nameEditCtrl.hasError('maxlength')">
+        <strong>Consultant name can't be more than 25 characters</strong>
+      </div>
+      <div class="my-text-yellow" *ngIf="nameEditCtrl.dirty && nameEditCtrl.hasError('minlength')">
+        <strong>Consultant name can't be less than 3 characters</strong>
+      </div>
+      <div class="row">
+        <div class="col-4 ">
+          <label>Activité</label>
+        </div>
+        <div class="col-8">
+          <input formControlName="activity">
+        </div>
+      </div>
+      <div class="my-text-yellow" *ngIf="activityEditCtrl.dirty && activityEditCtrl.hasError('required')">
+          <strong>Activity is required</strong>
+        </div>
+        <div class="my-text-yellow" *ngIf=" activityEditCtrl.dirty && activityEditCtrl.hasError('maxlength')">
+          <strong>Activity can't be more than 10 characters</strong>
+        </div>
+      <div class="row">
+        <div class="col-4 ">
+          <label>Représentant</label>
+        </div>
+        <div class="col-8">
+          <input formControlName="legalAgent">
+        </div>
+      </div>
+      <div class="my-text-yellow" *ngIf="legalAgentEditCtrl.dirty && legalAgentEditCtrl.hasError('required')">
+        <strong>Legal agent name is required</strong>
+      </div>
+      <div class="my-text-yellow" *ngIf=" legalAgentEditCtrl.dirty && legalAgentEditCtrl.hasError('maxlength')">
+        <strong>Legal Agent name can't be more than 15 characters</strong>
+      </div>
+      <div class="my-text-yellow" *ngIf="legalAgentEditCtrl.dirty && legalAgentEditCtrl.hasError('minlength')">
+        <strong>Legal Agent name can't be less than 3 characters</strong>
+      </div>
+      <div class="row">
+        <div class="col-4 ">
+          <label>Co-fondateur(s)</label>
+        </div>
+        <div class="col-8">
+          <input min="0" type="number" formControlName="coFounders">
+        </div>
+      </div>
+      <div class="my-text-yellow" *ngIf="coFoundersEditCtrl.dirty && coFoundersEditCtrl.hasError('required')">
+          <strong>Number of co-founders is required</strong>
+        </div>
+      <div class="row">
+        <div class="col-4 ">
+          <label>Description</label>
+        </div>
+        <div class="col-8">
+          <textarea formControlName="description"></textarea>
+        </div>
+      </div>
+      <div class="my-text-yellow" *ngIf="descriptionEditCtrl.dirty && descriptionEditCtrl.hasError('required')">
+        <strong>Description is required</strong>
+      </div>
+      <div class="my-text-yellow" *ngIf=" descriptionEditCtrl.dirty && descriptionEditCtrl.hasError('maxlength')">
+        <strong>Description can't be more than 250 characters</strong>
+      </div>
+      <div class="row">
+        <div class="col-4 ">
+          <label>Adresse</label>
+        </div>
+        <div class="col-8">
+          <input formControlName="address">
+        </div>
+      </div>
+      <div class="my-text-yellow" *ngIf=" addressEditCtrl.dirty && addressEditCtrl.hasError('maxlength')">
+          <strong>Address can't be more than 25 characters</strong>
+        </div>
+      <div class="row">
+        <div class="col-4 ">
+          <label>Consultant</label>
+        </div>
+        <div class="col-8">
+          <select formControlName="consultant">
+            <option  *ngFor="let consultant of consultants" value="{{consultant.name}}">{{consultant.name}}
+          </select>
+        </div>
+      </div>
+      <div class="my-text-yellow" *ngIf="consultantEditCtrl.dirty && consultantEditCtrl.hasError('required')">
+        <strong>Consultant is required</strong>
+      </div>
+      <div class="row mt-3 mb-3">
+        <div class="col-4 offset-4">
+          <button [disabled]="startupEditForm.invalid" class="btn btn-primary my-yellow-background" type="submit">Modify</button>
         </div>
       </div>
     </form>
