@@ -1,0 +1,24 @@
+.page-404 {
+  text-align: center;
+}
+
+.logo-404 {
+  width: 50%;
+  margin-top: 30px;
+}
+
+.btn-page404 {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.btn-page404 button {
+  color: #ffffff;
+  background-color: #fc3c3c;
+  border: 0px;
+}
+
+.btn-page404 button:hover {
+  background-color: #636b72;
+  color: #FFFFFF;
+}
